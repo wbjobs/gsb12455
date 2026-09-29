@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模块化按需加载器 · 依赖管理 / 重试 / 降级</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <header>
+    <h1>JS 模块按需加载器</h1>
+    <p>动态 import · 依赖解析 · 超时中断 · 失败重试 · 降级兜底 · 依赖图 · 历史记录</p>
+  </header>
+
+  <section id="controls">
+    <button data-scenario="normal">加载全部</button>
+    <button data-scenario="notfound">模拟 404 → 降级</button>
+    <button data-scenario="timeout">模拟超时中断</button>
+    <button data-scenario="fallbackFail">模拟降级失败 → 兜底</button>
+    <button data-scenario="cycle">模拟循环依赖</button>
+    <button data-scenario="cascade">模拟依赖失败级联</button>
+    <button data-scenario="reset" class="ghost">重置</button>
+  </section>
+
+  <main>
+    <section class="panel">
+      <h2>模块状态</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>模块</th><th>依赖</th><th>状态</th><th>耗时</th>
+            <th>重试</th><th>降级/失败原因</th><th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="module-rows"></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>依赖图</h2>
+      <div class="canvas-wrap"><canvas id="graph"></canvas></div>
+    </section>
+
+    <section class="panel">
+      <h2>性能观测 <small>(PerformanceObserver)</small></h2>
+      <ul id="perf-log"></ul>
+    </section>
+
+    <section class="panel">
+      <h2>加载历史 <small>(IndexedDB)</small>
+        <button id="clear-history" class="ghost small">清空</button>
+      </h2>
+      <div id="history-list"></div>
+    </section>
+  </main>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
