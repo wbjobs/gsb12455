@@ -1,0 +1,54 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #14161b;
+  color: #e6e9ef;
+}
+header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 20px; background: #1c1f26; border-bottom: 1px solid #2a2e38;
+  flex-wrap: wrap; gap: 8px;
+}
+h1 { font-size: 18px; margin: 0; }
+h2 { font-size: 14px; margin: 0 0 10px; color: #9aa3b2; }
+.toolbar button, .m-actions button {
+  background: #2a2e38; color: #e6e9ef; border: 1px solid #3a3f4c;
+  border-radius: 4px; padding: 5px 10px; margin-right: 6px; cursor: pointer; font-size: 12px;
+}
+.toolbar button:hover, .m-actions button:hover { background: #3a3f4c; }
+main {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 14px 20px;
+}
+.panel { background: #1c1f26; border: 1px solid #2a2e38; border-radius: 8px; padding: 14px; min-width: 0; }
+.module-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 70px 60px 50px 1.4fr auto;
+  gap: 8px; align-items: center; padding: 6px 4px;
+  border-bottom: 1px solid #262a33; font-size: 12px;
+}
+.module-header { color: #9aa3b2; font-weight: 600; }
+.m-reason, .history-row span:last-child {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #9aa3b2;
+}
+.m-actions { white-space: nowrap; }
+.m-actions button { padding: 3px 7px; margin-right: 4px; }
+.state-pending { color: #8a8f98; }
+.state-loading { color: #e6a23c; }
+.state-loaded { color: #3fb27f; }
+.state-fallback { color: #b98ae0; }
+.state-degraded { color: #d4b106; }
+.state-failed { color: #e05555; }
+.state-skipped { color: #5b8def; }
+.state-blocked { color: #ff7a45; }
+#graph { width: 100%; height: 320px; display: block; }
+#log { max-height: 220px; overflow-y: auto; font-size: 12px; font-family: ui-monospace, monospace; }
+.log-line { padding: 2px 0; border-bottom: 1px solid #23262e; }
+.log-warn { color: #e6a23c; }
+.log-error { color: #e05555; }
+#history-list { max-height: 200px; overflow-y: auto; font-size: 12px; }
+.history-row {
+  display: grid; grid-template-columns: 80px 90px 70px 60px 60px 1fr;
+  gap: 8px; padding: 4px 0; border-bottom: 1px solid #23262e;
+}
+@media (max-width: 900px) { main { grid-template-columns: 1fr; } }

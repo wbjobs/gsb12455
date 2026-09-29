@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模块加载器 — 依赖管理 / 重试 / 降级</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <header>
+    <h1>动态模块加载器</h1>
+    <div class="toolbar">
+      <button id="btn-load-all">加载全部</button>
+      <button id="btn-load-report">按需加载 report</button>
+      <button id="btn-register-cycle">注册循环依赖(演示检测)</button>
+      <button id="btn-clear-history">清空历史</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>模块状态</h2>
+      <div class="module-header module-row">
+        <span>模块</span><span>依赖</span><span>状态</span>
+        <span>耗时</span><span>重试</span><span>降级原因 / 错误</span><span>操作</span>
+      </div>
+      <div id="module-list"></div>
+    </section>
+
+    <section class="panel">
+      <h2>依赖图</h2>
+      <canvas id="graph"></canvas>
+    </section>
+
+    <section class="panel">
+      <h2>事件日志</h2>
+      <div id="log"></div>
+    </section>
+
+    <section class="panel">
+      <h2>加载历史（IndexedDB）</h2>
+      <div id="history-list"></div>
+    </section>
+  </main>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
